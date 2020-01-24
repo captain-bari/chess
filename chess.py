@@ -25,7 +25,7 @@ br=pygame.image.load("br.png")
 pieces = [["br", "bh", "bb", "bq", "bk", "bb", "bh", "br"], ["bp", "bp", "bp", "bp", "bp", "bp", "bp", "bp"], ["-", "-", "-", "-", "-", "-", "-", "-"], ["-", "-", "-", "-", "-", "-", "-", "-"], ["-", "-", "-", "-", "-", "-", "-", "-"], ["-", "-", "-", "-", "-", "-", "-", "-"], ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"], ["wr", "wh", "wb", "wq", "wk", "wb", "wh", "wr"]]
 #--------------------------------------------------------------------------------------------------------------------
 done = False
-firsttap="null"
+firsttap="-"
 
 while not done:
     for event in pygame.event.get():
@@ -39,12 +39,12 @@ while not done:
             for n in range(8):
                 for m in range(8):
                     if (b>n*60 and b<(n+1)*60) and (a>m*60 and a<(m+1)*60):
-                        if firsttap is "null":
+                        if firsttap is "-":
                             firsttap = pieces[n][m]
                             pieces[n][m] = "-"
                         else:
                             pieces[n][m] = firsttap
-                            firsttap = "null"
+                            firsttap = "-"
                         print(pieces)
                         break
 
