@@ -42,9 +42,13 @@ while not done:
                         if firsttap is "-":
                             firsttap = pieces[n][m]
                             pieces[n][m] = "-"
+                            pygame.mixer.music.load('f.mp3')
+                            pygame.mixer.music.play(0)
                         else:
                             pieces[n][m] = firsttap
                             firsttap = "-"
+                            pygame.mixer.music.load('s.mp3')
+                            pygame.mixer.music.play(0)
                         print(pieces)
                         break
 
