@@ -5,7 +5,7 @@ pygame.init()                                               #Start
 clock = pygame.time.Clock()                                 #fps initalise
 screen = pygame.display.set_mode((480, 480))                #main window
 screen.fill((50,50,50))                                     #background black
-pygame.display.set_caption('Gurmeet ki gand mai danda')
+pygame.display.set_caption('Chess')
 
 
 #storing images------------------------------------------------------------------------------------------------
@@ -30,6 +30,16 @@ while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            # Set the x, y postions of the mouse click
+            a, b = event.pos
+            print(a,b)
+            for n in range(8):
+                for m in range(8):
+                    if (b>n*60 and b<(n+1)*60) and (a>m*60 and a<(m+1)*60):
+                        pieces[n][m]="-"
+                        break
+
 
     x=0
     y=0
