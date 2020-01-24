@@ -5,6 +5,7 @@ pygame.init()                                               #Start
 clock = pygame.time.Clock()                                 #fps initalise
 screen = pygame.display.set_mode((480, 480))                #main window
 screen.fill((50,50,50))                                     #background black
+pygame.display.set_caption('Gurmeet ki gand mai danda')
 
 
 #storing images------------------------------------------------------------------------------------------------
