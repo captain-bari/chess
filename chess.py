@@ -25,6 +25,7 @@ br=pygame.image.load("br.png")
 pieces = [["br", "bh", "bb", "bq", "bk", "bb", "bh", "br"], ["bp", "bp", "bp", "bp", "bp", "bp", "bp", "bp"], ["-", "-", "-", "-", "-", "-", "-", "-"], ["-", "-", "-", "-", "-", "-", "-", "-"], ["-", "-", "-", "-", "-", "-", "-", "-"], ["-", "-", "-", "-", "-", "-", "-", "-"], ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"], ["wr", "wh", "wb", "wq", "wk", "wb", "wh", "wr"]]
 #--------------------------------------------------------------------------------------------------------------------
 done = False
+firsttap="null"
 
 while not done:
     for event in pygame.event.get():
@@ -34,16 +35,24 @@ while not done:
             # Set the x, y postions of the mouse click
             a, b = event.pos
             print(a,b)
+
             for n in range(8):
                 for m in range(8):
                     if (b>n*60 and b<(n+1)*60) and (a>m*60 and a<(m+1)*60):
-                        pieces[n][m]="-"
+                        if firsttap is "null":
+                            firsttap = pieces[n][m]
+                            pieces[n][m] = "-"
+                        else:
+                            pieces[n][m] = firsttap
+                            firsttap = "null"
+                        print(pieces)
                         break
 
 
     x=0
     y=0
     line=1
+    screen.fill((50, 50, 50))
     for temp in range(64): #BOARD
         pygame.draw.rect(screen, (255, 255, 255),(x,y,60,60))
         x+=120
