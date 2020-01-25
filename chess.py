@@ -1,4 +1,5 @@
 import pygame
+import rules
 from pygame.locals import *
 
 pygame.init()                                               #Start
@@ -42,13 +43,22 @@ while not done:
                         if firsttap is "-":
                             firsttap = pieces[n][m]
                             pieces[n][m] = "-"
+                            from_x=n
+                            from_y=m
                             pygame.mixer.music.load('f.mp3')
                             pygame.mixer.music.play(0)
                         else:
-                            pieces[n][m] = firsttap
-                            firsttap = "-"
-                            pygame.mixer.music.load('s.mp3')
-                            pygame.mixer.music.play(0)
+                            if rules.check(pieces, firsttap, from_x, from_y, n, m):
+                                pieces[n][m] = firsttap
+                                firsttap = "-"
+                                pygame.mixer.music.load('s.mp3')
+                                pygame.mixer.music.play(0)
+                            else:
+                                pieces[from_x][from_y] = firsttap
+                                firsttap = "-"
+                                pygame.mixer.music.load('invalid.mp3')
+                                pygame.mixer.music.play(0)
+
                         print(pieces)
                         break
 
