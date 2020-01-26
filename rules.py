@@ -69,6 +69,38 @@ def check(pieces, firsttap, from_x, from_y, to_x, to_y):
         break
       if ((to_x == i and to_y == j) and first_charfinal != "w"):
         return True
+       
+       
+       
+       
+        # rook rules
+
+  if firsttap == "wr" or firsttap == "br":
+    if from_x == to_x:
+      if from_y>to_y:
+        for i in range(to_y+1 , from_y):
+          if pieces[from_x][i] != "-":
+            return False
+        return True
+
+      if from_y < to_y:
+        for i in range(from_y + 1, to_y ):
+          if pieces[from_x][i] != "-":
+            return False
+        return True
+
+    if from_y == to_y:
+      if from_x>to_x:
+        for i in range(to_x+1 , from_x):
+          if pieces[i][from_y] != "-":
+            return False
+        return True
+      if from_x < to_x:
+        for i in range(from_x + 1, to_x):
+          if pieces[i][from_y] != "-":
+            return False
+        return True
+  
   
   
   #Universal return False
