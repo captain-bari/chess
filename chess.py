@@ -27,6 +27,7 @@ pieces = [["br", "bh", "bb", "bq", "bk", "bb", "bh", "br"], ["bp", "bp", "bp", "
 #--------------------------------------------------------------------------------------------------------------------
 done = False
 firsttap="-"
+lastmoveby="b"
 
 while not done:
     for event in pygame.event.get():
@@ -42,6 +43,13 @@ while not done:
                     if (b>n*60 and b<(n+1)*60) and (a>m*60 and a<(m+1)*60):
                         if firsttap is "-":
                             firsttap = pieces[n][m]
+                            if(pieces[n][m]=="-"):
+                                break
+                            if(firsttap[0]==lastmoveby):
+                                firsttap = "-"
+                                pygame.mixer.music.load('turn.mp3')
+                                pygame.mixer.music.play(0)
+                                break
                             pieces[n][m] = "-"
                             from_x=n
                             from_y=m
@@ -50,6 +58,7 @@ while not done:
                         else:
                             if rules.check(pieces, firsttap, from_x, from_y, n, m):
                                 pieces[n][m] = firsttap
+                                lastmoveby=firsttap[0]
                                 firsttap = "-"
                                 pygame.mixer.music.load('s.mp3')
                                 pygame.mixer.music.play(0)
