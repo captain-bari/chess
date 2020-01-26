@@ -20,4 +20,9 @@ def check(pieces, firsttap, from_x, from_y, to_x, to_y):
         return True
     if (to_x == (from_x + 1) and (abs(to_y - from_y) == 0 or abs(to_y - from_y) == 1 )):
         return True
+  
+  
+  
+  
+  #Universal return False
   return False
