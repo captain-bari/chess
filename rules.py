@@ -1,7 +1,23 @@
 def check(pieces, firsttap, from_x, from_y, to_x, to_y):
 
-  # pawn_rules
+ #Universal False
+  final_pos = pieces[to_x][to_y]
+  first_char = final_pos[0]
 
+  if(firsttap[0] == first_char):
+    return False
+
+
+
+
+
+
+# pawn_rules
+
+  
+  
+  
+  
   final_pos = pieces[to_x][to_y]
   first_char = final_pos[0]
   if(firsttap == "wp" and first_char != "w"):
