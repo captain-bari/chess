@@ -56,6 +56,7 @@ while not done:
                             pygame.mixer.music.load('f.mp3')
                             pygame.mixer.music.play(0)
                         else:
+                    
                             if rules.check(pieces, firsttap, from_x, from_y, n, m):
                                 pieces[n][m] = firsttap
                                 lastmoveby=firsttap[0]
