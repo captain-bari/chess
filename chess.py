@@ -119,6 +119,6 @@ while not done:
                     screen.blit(wh, ((j * 60, i * 60)))
                 if temp is "bh":
                     screen.blit(bh, ((j * 60, i * 60)))
-
+                    
     msElapsed = clock.tick(30)
     pygame.display.update()
