@@ -40,35 +40,38 @@ def check(pieces, firsttap, from_x, from_y, to_x, to_y):
    #bishop_rules
 
 
-  if(firsttap == "wb" and ( abs(to_x - from_x) == abs(to_y - from_y))):
+  if((firsttap == "wb" or firsttap == "bb") and ( abs(to_x - from_x) == abs(to_y - from_y))):
     for i, j in zip(range(from_x+1,8),range(from_y+1,8)):
       curr_pos = pieces[i][j]
       first_charcurr = curr_pos[0]
-      if (first_charcurr == "w"):
-        break
-      if( (to_x == i and to_y == j) and first_charfinal != "w" ):
+      if ((to_x == i and to_y == j)):
         return True
-    for i, j in zip(range(from_x-1,-1,-1),range(from_y-1,-1,-1)):
+      if (first_charcurr == "w" or first_charcurr == "b"):
+        break
+
+    for i, j in zip(range(from_x-1,to_x-1,-1),range(from_y-1,to_y-1,-1)):
       curr_pos = pieces[i][j]
       first_charcurr = curr_pos[0]
-      if (first_charcurr == "w"):
-        break
-      if ((to_x == i and to_y == j) and first_charfinal != "w"):
+      if ((to_x == i and to_y == j)):
         return True
+      if (first_charcurr == "w" or first_charcurr == "b"):
+        break
+
     for i, j in zip( range(from_x + 1,8),range(from_y - 1,-1,-1) ):
       curr_pos = pieces[i][j]
       first_charcurr = curr_pos[0]
-      if (first_charcurr == "w"):
-        break
-      if ((to_x == i and to_y == j) and first_charfinal != "w"):
+      if ((to_x == i and to_y == j)):
         return True
+      if (first_charcurr == "w" or first_charcurr == "b"):
+        break
+
     for i, j in zip( range(from_x - 1, -1, -1), range(from_y + 1, 8) ):
       curr_pos = pieces[i][j]
       first_charcurr = curr_pos[0]
-      if (first_charcurr == "w"):
-        break
-      if ((to_x == i and to_y == j) and first_charfinal != "w"):
+      if ((to_x == i and to_y == j)):
         return True
+      if (first_charcurr == "w" or first_charcurr == "b"):
+        break
        
   #basic king rules
     if firsttap == "bk" or firsttap == "wk":
