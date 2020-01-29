@@ -35,20 +35,26 @@ for a, b in zip( range(i - 1, -1, -1), range(j + 1, 8) ):
 ### knight 
     if rules.check(pieces, pieces[i][j],i, j, i + 1,j + 2] ):
         array.append([0,i, j,i + 1, j + 2])
-    if rules.check(pieces, pieces[i][j], i, j, i + 1, j - 2] ):
-        array.append([0,i, j,i + 1, j - 2])
-    if rules.check(pieces, pieces[i][j], i, j, i - 1, j + 1] ):
-        array.append([0,i, j,i - 2, j + 1])
-    if rules.check(pieces, pieces[i][j], i, j, i - 2, j - 1] ):
-        array.append([0,i, j,i - 2, j - 1])
+    if j-2 >= 0 :    
+        if rules.check(pieces, pieces[i][j], i, j, i + 1, j - 2] ):
+            array.append([0,i, j,i + 1, j - 2])
+    if i-2 >=0 :
+        if rules.check(pieces, pieces[i][j], i, j, i - 1, j + 1] ):
+            array.append([0,i, j,i - 2, j + 1])
+    if i-2 >=0 and j-1 >=0:
+        if rules.check(pieces, pieces[i][j], i, j, i - 2, j - 1] ):
+            array.append([0,i, j,i - 2, j - 1])
     if rules.check(pieces, pieces[i][j], i, j, i + 2, j + 1] ):
-        array.append([0,i, j,i + 2, j + 1])
-    if rules.check(pieces, pieces[i][j], i, j, i + 2, j - 1] ):
-        array.append([0,i, j,i + 2, j - 1])
-    if rules.check(pieces, pieces[i][j],i, j, i - 1,j + 2] ):
-        array.append([0,i, j,i - 1, j + 2])
-    if rules.check(pieces, pieces[i][j],i, j, i - 1,j - 2] ):
-        array.append([0,i, j,i - 1, j - 2])
+            array.append([0,i, j,i + 2, j + 1])
+    if j-1 >=0:
+        if rules.check(pieces, pieces[i][j], i, j, i + 2, j - 1] ):
+            array.append([0,i, j,i + 2, j - 1])
+    if i-1 >=0:
+        if rules.check(pieces, pieces[i][j],i, j, i - 1,j + 2] ):
+            array.append([0,i, j,i - 1, j + 2])
+    if i-1 >=0 and j-2 >=0:
+        if rules.check(pieces, pieces[i][j],i, j, i - 1,j - 2] ):
+            array.append([0,i, j,i - 1, j - 2])
 ###pawn
 
 array=[]
