@@ -151,11 +151,11 @@ def check(pieces, firsttap, from_x, from_y, to_x, to_y):
                         return False
                 return True
 
-        if from_y < to_y:
-            for i in range(from_y + 1, to_y):
-                if pieces[from_x][i] != "-":
-                    return False
-            return True
+            if from_y < to_y:
+                for i in range(from_y + 1, to_y):
+                    if pieces[from_x][i] != "-":
+                        return False
+                return True
 
         if from_y == to_y:
             if from_x > to_x:
@@ -163,11 +163,12 @@ def check(pieces, firsttap, from_x, from_y, to_x, to_y):
                     if pieces[i][from_y] != "-":
                         return False
                 return True
-        if from_x < to_x:
-            for i in range(from_x + 1, to_x):
-                if pieces[i][from_y] != "-":
-                    return False
-            return True
+            if from_x < to_x:
+                for i in range(from_x + 1, to_x):
+                    if pieces[i][from_y] != "-":
+                        return False
+                return True
+
 
     
    #knight rules
