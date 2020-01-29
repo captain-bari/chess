@@ -237,28 +237,60 @@ def check(pieces, firsttap, from_x, from_y, to_x, to_y):
         return True
   
   #castling
+
+
+
   c=0
+  b=0
+
   if(firsttap == "wk"):
+
+
     for i in range(5,7):
       curr_pos = pieces[7][i]
       first_charcurr = curr_pos[0]
       if(first_charcurr == "w" or first_charcurr == "b"):
         c=1
+
+    for i in range(3,0,-1):
+      curr_pos = pieces[7][i]
+      first_charcurr = curr_pos[0]
+      if (first_charcurr == "w" or first_charcurr == "b"):
+         b = 1
+
   if((from_x == 7 and from_y == 4) and c == 0):
     if(to_x == 7 and to_y == 6):
       pieces[7][7]="-"
       pieces[7][5]="wr"
+
+  if ((from_x == 7 and from_y == 4) and b == 0):
+    if (to_x == 7 and to_y == 2):
+      pieces[7][0] = "-"
+      pieces[7][3] = "wr"
+
   d=0
+  e=0
   if (firsttap == "bk"):
     for i in range(5, 7):
       curr_pos = pieces[0][i]
       first_charcurr = curr_pos[0]
       if (first_charcurr == "w" or first_charcurr == "b"):
         d = 1
-  if ((from_x == 0 and from_y == 4) and d == 0):
+    for i in range(3,0,-1):
+      curr_pos = pieces[0][i]
+      first_charcurr = curr_pos[0]
+      if (first_charcurr == "w" or first_charcurr == "b"):
+        e = 1
+
+  if ((from_x == 0 and from_y == 4) and e == 0):
     if (to_x == 0 and to_y == 6):
       pieces[0][7] = "-"
       pieces[0][5] = "br"
+
+  if ((from_x == 0 and from_y == 4) and e == 0):
+    if (to_x == 0 and to_y == 2):
+      pieces[0][0] = "-"
+      pieces[0][3] = "br"
   return True
   
   #Universal return False
