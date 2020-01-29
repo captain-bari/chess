@@ -49,3 +49,24 @@ for a, b in zip( range(i - 1, -1, -1), range(j + 1, 8) ):
         array.append([0,from_x,from_y,from_x - 1, from_y + 2])
     if rules.check(pieces, pieces[i][j],i, j, from_x - 1,from_y - 2] ):
         array.append([0,from_x,from_y,from_x - 1, from_y - 2])
+###pawn
+
+array=[]
+if pieces[i,j]=="bp":
+    if rules.check(pieces, pieces[i, j], i, j, i+1, j):
+        array.append([0,i,j,i+1,j])
+    if rules.check(pieces, pieces[i, j], i, j, i + 1, j):
+        array.append([0,i,j,i + 1, j])
+    if rules.check(pieces, pieces[i, j], i, j, i + 1, j+1):
+        array.append([0,i,j,i + 1, j+1])
+    if rules.check(pieces, pieces[i, j], i, j, i + 1, j-1):
+        array.append([0,i,j,i + 1, j-1])
+if pieces[i,j]=="wp":
+    if rules.check(pieces, pieces[i, j], i, j, i - 1, j):
+        array.append([0,i,j,i-1,j])
+    if rules.check(pieces, pieces[i, j], i, j, i - 2, j):
+        array.append([0,i,j,i - 2, j])
+    if rules.check(pieces, pieces[i, j], i, j, i - 1, j-1):
+        array.append([0,i,j,i - 1, j-1])
+    if rules.check(pieces, pieces[i, j], i, j, i - 1, j+1):
+        array.append([0,i,j,i - 1, j+1])
